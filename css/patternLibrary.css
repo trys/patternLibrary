@@ -1,0 +1,99 @@
+/*
+tomango pattern library & front-end style-guide
+*/ 
+
+
+/*
+Reset
+*/
+
+html, body, span, p, a, ul, li, ol, dd, dt, dl, cite, em, strong, blockquote, img, figure, code {
+	padding: 0;
+	margin: 0;
+}
+
+div, header, footer, section, article, aside, main, pre {
+	display:block;
+	margin:0;
+	padding:0;
+}
+
+code {
+	max-width:100%;
+}
+
+h1, h2, h3, h4, h5, h6, th, td, caption {
+	font-weight: normal;
+	margin:0;
+	line-height:1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+img {
+	border: 0;
+	max-width: 100%;
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+}
+
+
+/*
+Global
+*/
+
+.library {
+	padding-top:60px;
+	font:16px 'Open Sans', sans-serif;
+}
+
+.library-container {
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+	padding:20px;
+}
+
+/*
+Header
+*/
+
+.library-banner {
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+	background:rgba(255, 255, 255, .8);
+	text-align:center;
+	position:fixed;
+	padding:10px 20px;
+	z-index:10;
+	width:100%;
+	left:0;
+	top:0;
+}
+
+.library-title,
+.library-subtitle {
+	display:inline;
+}
+
+.library-title {
+	float:left;
+}
+
+/*
+Pattern
+*/
+
+.pattern {
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+	border:solid 2px #e1e1e1;
+	margin:10px 0;
+}
+
