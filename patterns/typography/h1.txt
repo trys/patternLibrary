@@ -1,1 +1,0 @@
-h1 should only be used once on the page

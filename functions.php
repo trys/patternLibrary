@@ -3,62 +3,68 @@
 $libraryPath = $_SERVER['DOCUMENT_ROOT'];
 $patternsPath = './patterns';
 
-function displayPatterns($directory) {
+function displayPatterns($patternsPath) {
 
 	$patternLibrary = array();
 
-	if ( is_dir( $directory ) ) {
+	if ( is_dir( $patternsPath ) ) {
 
-		$patterns = scandir( $directory );
+		$patterns = scandir( $patternsPath );
 
+		// Loop through patterns directory and pick out all files and sub-directories.
 		foreach ( $patterns as $pattern ) {
 
 			if ( $pattern != '.' && $pattern != '..' ) {
 
-				if ( is_dir( $directory.'/'.$pattern ) ) {
+				// If pattern is a sub-directory
+				if ( is_dir( $patternsPath.'/'.$pattern ) ) {
 
-					$subpatterns = scandir( $directory.'/'.$pattern );
+					$subpatterns = scandir( $patternsPath.'/'.$pattern );
 
-					if ( $subpatterns ) {
+					if ( count ( $subpatterns ) > 2 ) {
 
+						// Create pattern-group-title from sub-directory name
 						$patternSwatch = array(
 							'heading' => $pattern
 						);
 
 						$patternLibrary[] = $patternSwatch;
-					}
 
-					foreach ( $subpatterns as $subpattern ) {
+						// Loop sub-directory files and push to patternLibrary
+						foreach ( $subpatterns as $subpattern ) {
 
-						if ( $subpattern != '.' && $subpattern != '..' ) {
+							if ( $subpattern != '.' && $subpattern != '..' ) {
 
-							if ( strpos( $subpattern, '.txt' ) !== false ) continue;
+								// Skip iteration if is usage file
+								if ( strpos( $subpattern, '.txt' ) !== false ) continue;
 
-							$patternTitle = str_replace('-', ' ', $subpattern);
-							$patternTitle = str_replace('.html', '', $patternTitle);
-							$patternCode = @file_get_contents($directory.'/'.$pattern.'/'.$subpattern);
-							$patternUsage = @file_get_contents($directory.'/'.$pattern.'/'.str_replace('.html', '.txt', $subpattern));
-							
-							$patternSwatch = array(
-								'title' => $patternTitle,
-								'code'	=> $patternCode,
-								'usage'	=> $patternUsage
-							);
+								$patternTitle = str_replace('-', ' ', $subpattern);
+								$patternTitle = str_replace('.html', '', $patternTitle);
+								$patternCode = @file_get_contents($patternsPath.'/'.$pattern.'/'.$subpattern);
+								$patternUsage = @file_get_contents($patternsPath.'/'.$pattern.'/'.str_replace('.html', '.txt', $subpattern));
+								
+								$patternSwatch = array(
+									'title' => $patternTitle,
+									'code'	=> $patternCode,
+									'usage'	=> $patternUsage
+								);
 
-							$patternLibrary[] = $patternSwatch;
+								$patternLibrary[] = $patternSwatch;
+
+							}
 
 						}
-
 					}
 
 				} else {
 
+					// Skip iteration if is usage file
 					if ( strpos( $pattern, '.txt' ) !== false ) continue;
 
 					$patternTitle = str_replace('-', '.', $pattern);
 					$patternTitle = str_replace('.html', '', $patternTitle);
-					$patternCode = @file_get_contents($directory.'/'.$pattern);
-					$patternUsage = @file_get_contents($directory.'/'.$pattern.'/'.str_replace('.html', '.txt', $subpattern));
+					$patternCode = @file_get_contents($patternsPath.'/'.$pattern);
+					$patternUsage = @file_get_contents($patternsPath.'/'.$pattern.'/'.str_replace('.html', '.txt', $subpattern));
 					
 					$patternSwatch = array(
 						'title' => $patternTitle,
@@ -78,6 +84,7 @@ function displayPatterns($directory) {
 
 	if ( $patternLibrary ) {
 
+		// Loop through all patterns
 		foreach ( $patternLibrary as $pattern ) {
 
 			if ( $pattern['heading'] ) {

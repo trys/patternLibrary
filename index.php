@@ -8,8 +8,7 @@
 	</head>
 	<body class="library">
 		<header class="library-banner">
-			<h1 class="library-title"></h1>
-			<h2 class="library-subtitle">pattern library &amp; front-end style-guide</h2>
+			<h1 class="library-title">tomango - pattern library &amp; front-end style-guide</h1>
 		</header>
 		<main role="main" class="library-container">
 			<?php displayPatterns($patternsPath);?>
