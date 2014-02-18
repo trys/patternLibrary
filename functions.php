@@ -1,6 +1,6 @@
 <?php
 
-$rootPath = $_SERVER['DOCUMENT_ROOT'];
+$libraryPath = $_SERVER['DOCUMENT_ROOT'];
 $patternsPath = './patterns';
 
 function displayPatterns($directory) {
@@ -32,13 +32,17 @@ function displayPatterns($directory) {
 
 						if ( $subpattern != '.' && $subpattern != '..' ) {
 
+							if ( strpos( $subpattern, '.txt' ) !== false ) continue;
+
 							$patternTitle = str_replace('-', ' ', $subpattern);
 							$patternTitle = str_replace('.html', '', $patternTitle);
-							$patternCode = @file_get_contents($directory.'/'.$pattern.'/'.$subpattern)."\n";
+							$patternCode = @file_get_contents($directory.'/'.$pattern.'/'.$subpattern);
+							$patternUsage = @file_get_contents($directory.'/'.$pattern.'/'.str_replace('.html', '.txt', $subpattern));
 							
 							$patternSwatch = array(
 								'title' => $patternTitle,
-								'code'	=> $patternCode
+								'code'	=> $patternCode,
+								'usage'	=> $patternUsage
 							);
 
 							$patternLibrary[] = $patternSwatch;
@@ -48,13 +52,18 @@ function displayPatterns($directory) {
 					}
 
 				} else {
+
+					if ( strpos( $pattern, '.txt' ) !== false ) continue;
+
 					$patternTitle = str_replace('-', '.', $pattern);
 					$patternTitle = str_replace('.html', '', $patternTitle);
-					$patternCode = @file_get_contents($directory.'/'.$pattern)."\n";
+					$patternCode = @file_get_contents($directory.'/'.$pattern);
+					$patternUsage = @file_get_contents($directory.'/'.$pattern.'/'.str_replace('.html', '.txt', $subpattern));
 					
 					$patternSwatch = array(
 						'title' => $patternTitle,
-						'code'	=> $patternCode
+						'code'	=> $patternCode,
+						'usage' => $patternUsage
 					);
 
 					$patternLibrary[] = $patternSwatch;
@@ -87,6 +96,7 @@ function displayPatterns($directory) {
 				echo 					htmlspecialchars($pattern['code'])."\n";
 				echo "	              </code>\n";
 				echo "	          </pre>\n";
+				echo "            <aside class=\"pattern-usage\"><strong>Usage:</strong>".$pattern['usage']."</aside>\n";
 				echo "	      </details>\n";
 				echo "	      <div class=\"pattern-preview\">\n";
 				echo "	          ".$pattern['code']."\n";
