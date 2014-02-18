@@ -141,6 +141,14 @@ Pattern
 	clear:both;
 }
 
+/*
+Pattern Group
+*/
+
 .pattern-group-title {
 	text-transform:capitalize;
+}
+
+.pattern-group-description {
+	margin:10px 0;
 }
