@@ -23,7 +23,7 @@ function displayPatterns($patternsPath) {
 
 					if ( count ( $subpatterns ) > 2 ) {
 
-						$patternDescription = @file_get_contents($patternsPath.'/'.$pattern.'/info.txt');
+						$patternDescription = @file_get_contents($patternsPath.'/'.$pattern.'/'.$pattern.'.txt');
 
 						// Create pattern-group-title from sub-directory name
 						$patternSwatch = array(
