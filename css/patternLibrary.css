@@ -7,42 +7,36 @@ tomango pattern library & front-end style-guide
 Reset
 */
 
-html, body, span, p, a, ul, li, ol, dd, dt, dl, cite, em, strong, blockquote, img, figure, code {
+html,
+body {
 	padding: 0;
 	margin: 0;
 }
 
-div, header, footer, section, article, aside, main, pre {
+div,
+aside,
+header,
+.library-container {
 	display:block;
 	margin:0;
 	padding:0;
 }
 
-code {
+.pattern-markup,
+.pattern-markup-block {
+	margin:0;
+	padding:0;
+}
+
+.pattern-markup {
 	max-width:100%;
 }
 
-h1, h2, h3, h4, h5, h6, th, td, caption {
-	font-weight: normal;
+.library-title,
+.pattern-group-title {
+	font-weight:normal;
 	margin:0;
 	line-height:1;
-}
-
-ol, ul {
-	list-style: none;
-}
-
-img {
-	border: 0;
-	max-width: 100%;
-}
-
-html {
-	-webkit-font-smoothing: antialiased;
-}
-
-strong {
-	font-weight:600;
 }
 
 
@@ -70,12 +64,13 @@ Header
 	-webkit-box-sizing:border-box;
 	   -moz-box-sizing:border-box;
 	        box-sizing:border-box;
-	background:rgba(255, 255, 255, .8);
+	background:rgba(53, 53, 53, .8);
 	text-align:center;
 	position:fixed;
 	padding:10px 20px;
 	z-index:10;
 	width:100%;
+	color:#fff;
 	left:0;
 	top:0;
 }
@@ -130,9 +125,10 @@ Pattern
 
 .pattern-usage strong {
 	border-bottom:1px solid #e2e2e2;
+	font-weight:600;
 	padding:0 0 5px;
-	margin:0 0 5px;
 	display:block;
+	margin:0 0 5px;
 	color:#D70929;
 }
 
