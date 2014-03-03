@@ -11,6 +11,7 @@ html,
 body {
 	padding: 0;
 	margin: 0;
+	height:100%;
 }
 
 div,
@@ -54,6 +55,94 @@ Global
 	   -moz-box-sizing:border-box;
 	        box-sizing:border-box;
 	padding:20px;
+	width:100%;
+	float:left;
+}
+
+.library-nav {
+	background:#333;
+	min-height:100%;
+	position:fixed;
+	width:20%;
+	right:-20%;
+	top:0;
+}
+
+.library-nav #nav-controls {
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+	-webkit-user-select:none;
+	   -moz-user-select:none;
+	        user-select:none;
+	border-radius:100%;
+	padding-left:10px;
+	padding-top:3px;
+	font-weight:bold;
+	background:#333;
+	position:absolute;
+	z-index:11;
+	cursor:pointer;
+	height:30px;
+	color:#fff;
+	width:30px;
+	left:calc( 0% - 50px );
+	top:9px;
+}
+
+.library-nav #nav-controls:before {
+	content:"<";
+}
+
+.library-nav #nav-controls,
+.library-nav,
+.library-container {
+	-webkit-transition:500ms all cubic-bezier(0.77, 0, 0.175, 1);
+	   -moz-transition:500ms all cubic-bezier(0.77, 0, 0.175, 1);
+	    -ms-transition:500ms all cubic-bezier(0.77, 0, 0.175, 1);
+	     -o-transition:500ms all cubic-bezier(0.77, 0, 0.175, 1);
+	        transition:500ms all cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.nav-open .library-container {
+	-webkit-transform:translateX(-20%);
+	   -moz-transform:translateX(-20%);
+	    -ms-transform:translateX(-20%);
+	     -o-transform:translateX(-20%);
+	        transform:translateX(-20%);
+}
+
+.nav-open .library-nav {
+	right:0;
+}
+
+.nav-open #nav-controls {
+	left:calc( 100% - 50px );
+	background:#D70929;
+	-webkit-transform:rotate(180deg);
+	   -moz-transform:rotate(180deg);
+	    -ms-transform:rotate(180deg);
+	     -o-transform:rotate(180deg);
+	        transform:rotate(180deg);
+}
+
+.library-nav-list {
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+	padding:40px 20px 20px;
+	list-style:none;
+	font-weight:bold;
+	color:#fff;
+}
+
+.library-nav-list li {
+	line-height:1.4;
+}
+
+.library-nav-list a {
+	text-decoration:none;
+	color:#fff;
 }
 
 /*
@@ -97,20 +186,24 @@ Pattern
 
 
 .pattern {
-	border:solid 2px #e1e1e1;
+	border:solid 1px #e1e1e1;
+	border-top:none;
 	margin:20px 0;
 }
 
 .pattern-summary {
-	background:#e5e5e5;
+	box-shadow:0 0 0 1px #bdc3c7;
+	background:#bdc3c7;
 	display:block;
 	padding:15px;
-	color:#D70929;
+	color:#333;
+	font-weight:bold;
 }
 
 .pattern-markup-block {
 	background:#f2f2f2;
 	max-height:300px;
+	margin-top:1px;
 	overflow:auto;
 	padding:15px;
 	float:left;

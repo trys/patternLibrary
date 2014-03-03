@@ -13,5 +13,13 @@
 		<main role="main" class="library-container">
 			<?php displayPatterns($patternsPath);?>
 		</main>
+		<nav class="library-nav">
+			<span id="nav-controls"></span>
+			<ul class="library-nav-list">
+				<?php displayPatternNav($patternsPath);?>
+			</ul>
+		</nav>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/load.js"></script>
 	</body>
 </html>

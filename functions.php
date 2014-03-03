@@ -3,7 +3,49 @@
 $libraryPath = $_SERVER['DOCUMENT_ROOT'];
 $patternsPath = './patterns';
 
+
 function displayPatterns($patternsPath) {
+	$patternLibrary = gatherPatterns($patternsPath);
+	if ( $patternLibrary ) {
+		// Loop through all patterns
+		foreach ( $patternLibrary as $pattern ) {
+			if ( $pattern['heading'] ) {
+				echo "<h2 class=\"pattern-group-title\" id=\"".$pattern['heading']."\">".$pattern['heading']."</h2>";
+				if( $pattern['description'] )
+					echo "<p class=\"pattern-group-description\">".$pattern['description']."</p>";
+			} else {
+				echo "	  <div class=\"pattern\" id=\"".$pattern['title']."\">\n";
+				echo "	      <details class=\"pattern-details\">\n";
+				echo "	          <summary class=\"pattern-summary\">\n";
+				echo "	              ".$pattern['title']."\n";
+				echo "	          </summary>\n";
+				echo "	          <pre class=\"pattern-markup-block language-markup\">\n";
+				echo "	              <code class=\"pattern-markup language-markup\">\n";
+				echo 					htmlspecialchars($pattern['code'])."\n";
+				echo "	              </code>\n";
+				echo "	          </pre>\n";
+				echo "            <aside class=\"pattern-usage\"><strong>Usage:</strong>".$pattern['usage']."</aside>\n";
+				echo "	      </details>\n";
+				echo "	      <div class=\"pattern-preview\">\n";
+				echo "	          ".$pattern['code']."\n";
+				echo "	      </div>\n";
+				echo "	  </div>\n";
+			}
+		}
+	}
+}
+
+function displayPatternNav($patternsPath) {
+	$patternLibrary = gatherPatterns($patternsPath);
+	foreach ( $patternLibrary as $pattern ) {
+		if ( $pattern['heading'] ) {
+			echo "<li class=\"pattern-group-title\"><a href=\"#".$pattern['heading']."\">".$pattern['heading']."</a></li>";
+		}
+	}
+}
+
+
+function gatherPatterns($patternsPath) {
 
 	$patternLibrary = array();
 
@@ -85,42 +127,10 @@ function displayPatterns($patternsPath) {
 
 	}
 
-	if ( $patternLibrary ) {
-
-		// Loop through all patterns
-		foreach ( $patternLibrary as $pattern ) {
-
-			if ( $pattern['heading'] ) {
-
-				echo "<h2 class=\"pattern-group-title\" id=\"".$pattern['heading']."\">".$pattern['heading']."</h2>";
-				if( $pattern['description'] )
-					echo "<p class=\"pattern-group-description\">".$pattern['description']."</p>";
-
-			} else {
-
-				echo "	  <div class=\"pattern\" id=\"".$pattern['title']."\">\n";
-				echo "	      <details class=\"pattern-details\">\n";
-				echo "	          <summary class=\"pattern-summary\">\n";
-				echo "	              ".$pattern['title']."\n";
-				echo "	          </summary>\n";
-				echo "	          <pre class=\"pattern-markup-block language-markup\">\n";
-				echo "	              <code class=\"pattern-markup language-markup\">\n";
-				echo 					htmlspecialchars($pattern['code'])."\n";
-				echo "	              </code>\n";
-				echo "	          </pre>\n";
-				echo "            <aside class=\"pattern-usage\"><strong>Usage:</strong>".$pattern['usage']."</aside>\n";
-				echo "	      </details>\n";
-				echo "	      <div class=\"pattern-preview\">\n";
-				echo "	          ".$pattern['code']."\n";
-				echo "	      </div>\n";
-				echo "	  </div>\n";
-
-			}
-
-		}
-
-	}
+	return $patternLibrary;
 
 }
+
+
 
 ?>
