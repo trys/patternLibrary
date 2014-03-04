@@ -39,7 +39,7 @@ function displayPatternNav($patternsPath) {
 	$patternLibrary = gatherPatterns($patternsPath);
 	foreach ( $patternLibrary as $pattern ) {
 		if ( $pattern['heading'] ) {
-			echo "<li class=\"pattern-group-title\"><a href=\"#".$pattern['heading']."\">".$pattern['heading']."</a></li>";
+			echo "<li class=\"pattern-nav-title\"><a href=\"#".$pattern['heading']."\">".$pattern['heading']."</a></li>";
 		}
 	}
 }

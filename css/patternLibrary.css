@@ -138,11 +138,16 @@ Global
 
 .library-nav-list li {
 	line-height:1.4;
+	text-transform:capitalize;
 }
 
 .library-nav-list a {
 	text-decoration:none;
 	color:#fff;
+}
+
+.library-container h2:first-child {
+	margin-top:0;
 }
 
 /*
@@ -226,6 +231,7 @@ Pattern
 }
 
 .pattern-preview {
+	border-top: 1px solid #F2F2F2;
 	padding:25px 15px;
 	clear:both;
 }
@@ -236,6 +242,10 @@ Pattern Group
 
 .pattern-group-title {
 	text-transform:capitalize;
+	background:#D70929;
+	color:#fff;
+	padding:15px 10px;
+	margin:30px 0 15px;
 }
 
 .pattern-group-description {
