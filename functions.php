@@ -9,9 +9,9 @@ function displayPatterns($patternsPath) {
 	if ( $patternLibrary ) {
 		// Loop through all patterns
 		foreach ( $patternLibrary as $pattern ) {
-			if ( $pattern['heading'] ) {
+			if ( isset($pattern['heading']) ) {
 				echo "<h2 class=\"pattern-group-title\" id=\"".$pattern['heading']."\">".$pattern['heading']."</h2>";
-				if( $pattern['description'] )
+				if( isset($pattern['description']) )
 					echo "<p class=\"pattern-group-description\">".$pattern['description']."</p>";
 			} else {
 				echo "	  <div class=\"pattern\" id=\"".$pattern['title']."\">\n";
@@ -38,7 +38,7 @@ function displayPatterns($patternsPath) {
 function displayPatternNav($patternsPath) {
 	$patternLibrary = gatherPatterns($patternsPath);
 	foreach ( $patternLibrary as $pattern ) {
-		if ( $pattern['heading'] ) {
+		if ( isset($pattern['heading']) ) {
 			echo "<li class=\"pattern-nav-title\"><a href=\"#".$pattern['heading']."\">".$pattern['heading']."</a></li>";
 		}
 	}
