@@ -1,1 +1,0 @@
-Use [button]<a href="#">Find out more</a>[/button]

@@ -10,26 +10,30 @@ function displayPatterns($patternsPath) {
 		// Loop through all patterns
 		foreach ( $patternLibrary as $pattern ) {
 			if ( isset($pattern['heading']) ) {
-				echo "<h2 class=\"pattern-group-title\" id=\"".$pattern['heading']."\">".$pattern['heading']."</h2>";
-				if( isset($pattern['description']) )
-					echo "<p class=\"pattern-group-description\">".$pattern['description']."</p>";
+				echo "<h2 class=\"library pattern-group-title\" id=\"".$pattern['heading']."\">".$pattern['heading']."</h2>";
+				if( $pattern['description'] )
+					echo "<p class=\"library pattern-group-description\">".$pattern['description']."</p>";
 			} else {
-				echo "	  <div class=\"pattern\" id=\"".$pattern['title']."\">\n";
-				echo "	      <details class=\"pattern-details\">\n";
-				echo "	          <summary class=\"pattern-summary\">\n";
-				echo "	              ".$pattern['title']."\n";
-				echo "	          </summary>\n";
+				echo "	  <article class=\"pattern\" id=\"".$pattern['title']."\">\n";
+				echo "	      <div class=\"pattern-details\">\n";
+				echo "	          <header class=\"library pattern-summary\">\n";
+				echo "	              <a href=\"#" . $pattern['title'] . "\">".$pattern['title']."</a>\n";
+				echo "	          </header>\n";
+				if ( isset( $_GET['code'] ) ) {
 				echo "	          <pre class=\"pattern-markup-block language-markup\">\n";
 				echo "	              <code class=\"pattern-markup language-markup\">\n";
 				echo 					htmlspecialchars($pattern['code'])."\n";
 				echo "	              </code>\n";
 				echo "	          </pre>\n";
-				echo "            <aside class=\"pattern-usage\"><strong>Usage:</strong>".$pattern['usage']."</aside>\n";
-				echo "	      </details>\n";
+				echo "            <aside class=\"library pattern-usage pattern-usage-slim\"><strong>Usage:</strong>".$pattern['usage']."</aside>\n";
+				} elseif ( $pattern['usage'] ) {
+				echo "            <aside class=\"library pattern-usage pattern-usage-full\"><strong>Usage:</strong>".$pattern['usage']."</aside>\n";
+				}
+				echo "	      </div>\n";
 				echo "	      <div class=\"pattern-preview\">\n";
 				echo "	          ".$pattern['code']."\n";
 				echo "	      </div>\n";
-				echo "	  </div>\n";
+				echo "	  </article>\n";
 			}
 		}
 	}
