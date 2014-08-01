@@ -9,6 +9,9 @@ function displayPatterns($patternsPath) {
 	if ( $patternLibrary ) {
 		// Loop through all patterns
 		foreach ( $patternLibrary as $pattern ) {
+
+			if ( isset( $pattern['title'] ) && $pattern['title'] == '.DS_Store' ) continue;
+
 			if ( isset($pattern['heading']) ) {
 				echo "<h2 class=\"library pattern-group-title\" id=\"".$pattern['heading']."\">".$pattern['heading']."</h2>";
 				if( $pattern['description'] )
