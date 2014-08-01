@@ -1,3 +1,3 @@
 # patternLibrary
 
-### Pattern Library for tomango
+### Pattern library template
