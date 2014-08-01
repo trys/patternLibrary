@@ -13,10 +13,8 @@ $title   = 'pattern library &amp; front-end style-guide';
 		<link href="css/patternLibrary.css" rel="stylesheet" />
 	</head>
 	<body>
-		<header class="library library-banner">
-			<h1 class="library-title"><?php echo $company . ' - ' . $title;?></h1>
-		</header>
 		<main role="main" class="library-container">
+			<h1 class="library library-title"><?php echo $company . ' - ' . $title;?></h1>
 			<p class="library library-description">
 				This pattern library serves as a resource for anyone involved in this project for <?php echo $company;?>.
 				All styles used on the website are outlined here and can be referenced when adding content or creating whole new sections.

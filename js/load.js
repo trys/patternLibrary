@@ -16,6 +16,7 @@ function toggleClass(el, className) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+	
 	var body = document.body,
 		navItems = document.getElementsByClassName('pattern-nav-title'),
 		navControls = document.getElementById('nav-controls');
