@@ -28,9 +28,9 @@ function displayPatterns($patternsPath) {
 				echo 					htmlspecialchars($pattern['code'])."\n";
 				echo "	              </code>\n";
 				echo "	          </pre>\n";
-				echo "            <aside class=\"library pattern-usage pattern-usage-slim\"><strong>Usage:</strong>".$pattern['usage']."</aside>\n";
+				echo "            <aside class=\"library pattern-usage pattern-usage-slim\"><strong>CMS Usage:</strong>".$pattern['usage']."</aside>\n";
 				} elseif ( $pattern['usage'] ) {
-				echo "            <aside class=\"library pattern-usage pattern-usage-full\"><strong>Usage:</strong>".$pattern['usage']."</aside>\n";
+				echo "            <aside class=\"library pattern-usage pattern-usage-full\"><strong>CMS Usage:</strong>".$pattern['usage']."</aside>\n";
 				}
 				echo "	      </div>\n";
 				echo "	      <div class=\"pattern-preview\">\n";

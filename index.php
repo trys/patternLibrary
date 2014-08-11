@@ -17,8 +17,8 @@ $title   = 'pattern library &amp; front-end style-guide';
 			<h1 class="library library-title"><?php echo $company . ' - ' . $title;?></h1>
 			<p class="library library-description">
 				This pattern library serves as a resource for anyone involved in this project for <?php echo $company;?>.
-				All styles used on the website are outlined here and can be referenced when adding content or creating whole new sections.
-				For a designer or developer wishing to see code examples, visit <a href="?code=1">here</a>.
+				All styles used on the website are outlined here and can be referenced when adding content or creating whole new sections of the website.<br />
+				For a designer or developer wishing to see code examples, click <a href="?code=1">here</a>.
 			</p>
 			<?php displayPatterns($patternsPath);?>
 		</main>
