@@ -8,6 +8,7 @@ $title   = 'pattern library &amp; front-end style-guide';
 <!DOCTYPE html>
 <html lang="en-gb">
 	<head>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
 		<title><?php echo $company . ' - ' . $title;?></title>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
 		<link href="css/patternLibrary.css" rel="stylesheet" />
